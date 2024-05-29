@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form class="form-container" asp-controller="Home" asp-action="Sign" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="signEmail" class="control-label">Enter Email:</label>
+        <input type="text" id="signEmail" name="signEmail" class="fileInput" />
+    </div>
+    <div class="form-group">
+        <label for="signName" class="control-label">Signed PDF name:</label>
+        <input type="text" id="signName" name="signName" class="form-control" />
+    </div>
+    
+    <button type="submit" class="uploadButton">Upload</button>
+</form>
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <p>@ViewBag.Message</p>
+}
