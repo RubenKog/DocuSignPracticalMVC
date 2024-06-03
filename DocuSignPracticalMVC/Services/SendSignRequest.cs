@@ -18,7 +18,7 @@ public class SendSignRequest
         try
         {
             accessToken = JwtAuth.AuthenticateWithJwt("ESignature", "c58dd321-880a-4732-ba88-ff8971488bba", "09df5276-9822-4479-9649-5505ab0afa82",
-                                                        "account-d.docusign.com", DsHelper.ReadFileContent("C:\\Users\\ruben\\source\\repos\\Gradproef\\DocuSignPracticalMVC\\DocuSignPracticalMVC\\private.key"));
+                                                        "account-d.docusign.com", DsHelper.ReadFileContent(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "keys", "private.key")));
         }
         catch (ApiException apiExp)
         {
@@ -58,7 +58,7 @@ public class SendSignRequest
                     Process.Start("open", url);
                 }
 
-                
+
             }
         }
 
@@ -72,8 +72,8 @@ public class SendSignRequest
         string signerName = signName;
         string ccEmail = signEmail;
         string ccName = signerName;
-        string docDocx = "C:\\Users\\ruben\\source\\repos\\Gradproef\\DocuSignPracticalMVC\\DocuSignPracticalMVC\\Files\\World_Wide_Corp_salary.docx";
-        string docPdf = "C:\\Users\\ruben\\source\\repos\\Gradproef\\DocuSignPracticalMVC\\DocuSignPracticalMVC\\Files\\World_Wide_Corp_lorem.pdf";
+        string docDocx = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Files", "World_Wide_Corp_salary.docx");
+        string docPdf = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Files", "World_Wide_Corp_lorem.pdf");
         Console.WriteLine("");
         string envelopeId = SigningViaEmail.SendEnvelopeViaEmail(signerEmail, signerName, ccEmail, ccName, accessToken.access_token, acct.BaseUri + "/restapi", acct.AccountId, docDocx, docPdf, "sent");
     }

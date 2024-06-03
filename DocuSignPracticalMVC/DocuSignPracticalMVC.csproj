@@ -13,7 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Files\" />
+    <None Include="wwwroot\Files\World_Wide_Corp_lorem.pdf" />
+    <None Include="wwwroot\Files\World_Wide_Corp_salary.docx" />
+    <None Include="wwwroot\keys\private.key" />
   </ItemGroup>
 
 </Project>
